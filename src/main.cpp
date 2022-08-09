@@ -26,6 +26,19 @@ static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
         return std::nullopt;
     return std::move(contents);
 }
+void getUserInputPoint(float &i, std::string s){
+    std::cout << s << "\n";
+    while(std::cin >> i &&( i < 0 || i > 100))
+        std::cout << "input should be in range 0-100" << "\n";
+}
+void getUserInput( float &start_x, float &start_y, float &end_x, float &end_y){
+    std::cout << "enter starting coordinates"<< "\n";
+    getUserInputPoint(start_x, "enter starting x");
+    getUserInputPoint(start_y, "enter starting y");
+    std::cout << "enter Ending coordinates"<< "\n";
+    getUserInputPoint(end_x, "enter ending x");
+    getUserInputPoint(end_y, "enter ending y");
+}
 
 int main(int argc, const char **argv)
 {    
@@ -56,17 +69,8 @@ int main(int argc, const char **argv)
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
     float start_x, start_y, end_x, end_y;
-    std::cout << "enter starting coordinates"<< "\n";
-    std::cout << "enter starting x"<< "\n";
-    std::cin >> start_x;
-    std::cout << "enter starting y"<< "\n";
-    std::cin >> start_y;
-    std::cout << "enter Ending coordinates"<< "\n";
-    std::cout << "enter ending x"<< "\n";
-    std::cin >> end_x;
-    std::cout << "enter ending y"<< "\n";
-    std::cin >> end_y;
-
+    getUserInput( start_x, start_y, end_x, end_y);
+    std::cout<< start_x <<" "<< start_y <<" "<< end_x <<" "<< end_y <<"\n";
     // Build Model.
     RouteModel model{osm_data};
 
