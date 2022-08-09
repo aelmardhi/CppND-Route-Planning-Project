@@ -54,9 +54,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 // - Return the pointer.
 
 bool compare( RouteModel::Node *n1, RouteModel::Node *n2){
-    float f1 = n1->g_value + n1->h_value;
-    float f2 = n2->g_value + n2->h_value;
-    return f1> f2;
+    return(n1->g_value + n1->h_value) > (n2->g_value + n2->h_value);
 }
 
 RouteModel::Node *RoutePlanner::NextNode() {
