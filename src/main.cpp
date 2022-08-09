@@ -70,7 +70,6 @@ int main(int argc, const char **argv)
     // RoutePlanner object below in place of 10, 10, 90, 90.
     float start_x, start_y, end_x, end_y;
     getUserInput( start_x, start_y, end_x, end_y);
-    std::cout<< start_x <<" "<< start_y <<" "<< end_x <<" "<< end_y <<"\n";
     // Build Model.
     RouteModel model{osm_data};
 
